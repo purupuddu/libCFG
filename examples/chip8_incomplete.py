@@ -1,6 +1,9 @@
 from libcfg import *
 
 def disassembler(bin:bytes, addr:int):
+    """Minimal chip8 example. Only disassembles what's relevant for cfg generation.
+    Any other instruction will be named "TEMP"
+    """
     op = bin[addr:addr+2]
     opi = op[0]<<8 | op[1]
     
@@ -18,5 +21,5 @@ def disassembler(bin:bytes, addr:int):
     return Instruction(addr+2)
 
 
-
+# main.bin from THEM?!CTF 2026
 CFG(bytes(0x200) + open("main.bin", "rb").read(), disassembler, [0x200])

@@ -6,6 +6,7 @@ from capstone import CS_ARCH_X86, CS_GRP_CALL, CS_GRP_JUMP, CS_GRP_RET, CS_MODE_
 from capstone.x86 import X86_OP_IMM
 from elftools.elf.elffile import ELFFile
 
+# As you might guess this is 100% vibecoded, enjoy the slop
 
 class ElfImage:
     def __init__(self, path):
@@ -71,7 +72,6 @@ def disassembler(binary: ElfImage, addr: int):
         return CondJump(cond_true=target, cond_false=nexti, s=text)
 
     return Instruction(nexti=nexti, s=text)
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Render a small x86/x86-64 ELF CFG demo.")
