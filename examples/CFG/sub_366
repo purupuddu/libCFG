@@ -1,6 +1,0 @@
-// sub_366
-digraph {
-	graph [splines=ortho]
-	node [fontname=monospace shape=box]
-	loc_366 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x000366</FONT></TD><TD ALIGN="LEFT">ret</TD></TR></TABLE>>]
-}

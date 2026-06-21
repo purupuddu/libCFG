@@ -1,5 +1,4 @@
-from libcfg import CFG
-from libcfg.Instruction import *
+from libcfg import *
 
 def disassembler(bin:bytes, addr:int):
     op = bin[addr:addr+2]
@@ -20,4 +19,4 @@ def disassembler(bin:bytes, addr:int):
 
 
 
-CFG.CFG(bytes(0x200) + open("main.bin", "rb").read(), disassembler, [0x200])
+CFG(bytes(0x200) + open("main.bin", "rb").read(), disassembler, [0x200])

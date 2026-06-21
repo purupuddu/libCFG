@@ -1,8 +1,0 @@
-// sub_6450
-digraph {
-	graph [splines=ortho]
-	node [fontname=monospace shape=box]
-	loc_2210 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x002210</FONT></TD><TD ALIGN="LEFT">jmp qword ptr [rip + 0x7d3a]</TD></TR></TABLE>>]
-	loc_6450 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006450</FONT></TD><TD ALIGN="LEFT">endbr64</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006454</FONT></TD><TD ALIGN="LEFT">jmp 0x2210</TD></TR></TABLE>>]
-	loc_6450 -> loc_2210 [color=blue]
-}
