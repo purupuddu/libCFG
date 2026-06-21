@@ -6,7 +6,7 @@ from html import escape
 import os
 from graphviz import Digraph
 
-def make_graph(binary, disassembler:Callable[[int, bytes], BaseInstruction], entry_points):
+def make_graph(binary, disassembler:Callable[[bytes, int], BaseInstruction], entry_points):
     graph = {}
     dfs_stack = []
     func_starts = set(entry_points)
@@ -17,7 +17,7 @@ def make_graph(binary, disassembler:Callable[[int, bytes], BaseInstruction], ent
             ip = dfs_stack.pop()
             if ip in graph:
                 continue
-            instr = disassembler(ip, binary)
+            instr = disassembler(binary, ip)
             if type(instr) not in {Instruction, Call, Jump, CondJump, Ret}:
                 raise TypeError("disassembler must retutn one of Instruction, Call, Jump, CondJump, Ret")
             if type(instr) == Call:
@@ -208,7 +208,7 @@ def render_svg(blocks, cc, entries, name, directory, xrefs, func_to_filename):
     dot.render(os.path.join(directory, name), format="svg")
     render_html(name, directory, callers, func_to_filename)
 
-def CFG(binary, disassembler: Callable[[int, bytes], BaseInstruction], entry_points :List[int], directory:str="CFG"):
+def CFG(binary, disassembler: Callable[[bytes, int], BaseInstruction], entry_points :List[int], directory:str="CFG"):
     graph, func_entries = make_graph(binary, disassembler, entry_points)
     dsu : UFDS = extract_components(graph)
 

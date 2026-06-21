@@ -1,0 +1,6 @@
+// sub_21b0
+digraph {
+	graph [splines=ortho]
+	node [fontname=monospace shape=box]
+	loc_21b0 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x0021b0</FONT></TD><TD ALIGN="LEFT">jmp qword ptr [rip + 0x7d6a]</TD></TR></TABLE>>]
+}

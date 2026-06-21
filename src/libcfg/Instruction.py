@@ -70,12 +70,10 @@ class CondJump(BaseInstruction):
 class Call(BaseInstruction):
     """Models call <target> instructions. The target must be a immediate value"""
 
-    def __init__(self, nexti, target, s=None):
+    def __init__(self, nexti, target, s="call"):
         self.nexti = nexti
         self.target = target
         self.s = s
-        if s is None:
-            self.s = f"call"
 
     def nextis(self) -> List[int]:
         return [self.nexti]

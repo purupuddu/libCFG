@@ -1,7 +1,7 @@
 from libcfg import CFG
 from libcfg.Instruction import *
 
-def disassembler(addr:int, bin:bytes):
+def disassembler(bin:bytes, addr:int):
     op = bin[addr:addr+2]
     opi = op[0]<<8 | op[1]
     

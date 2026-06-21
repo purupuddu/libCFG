@@ -29,6 +29,10 @@ classifiers = [
 dev = [
   "pytest>=8.0",
 ]
+examples = [
+  "capstone>=5.0",
+  "pyelftools>=0.31",
+]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/libcfg"]

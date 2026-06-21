@@ -1,0 +1,10 @@
+// sub_6350
+digraph {
+	graph [splines=ortho]
+	node [fontname=monospace shape=box]
+	loc_6350 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006350</FONT></TD><TD ALIGN="LEFT">endbr64</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006354</FONT></TD><TD ALIGN="LEFT">sub rsp, 8</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006358</FONT></TD><TD ALIGN="LEFT">mov edi, 0xe</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x00635d</FONT></TD><TD ALIGN="LEFT" HREF="sub_6450.html" TARGET="_top" TOOLTIP="Open sub_6450.html"><FONT COLOR="blue">call 0x6450 sub_6450</FONT></TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006362</FONT></TD><TD ALIGN="LEFT">test rax, rax</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006365</FONT></TD><TD ALIGN="LEFT">je 0x6380</TD></TR></TABLE>>]
+	loc_6367 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006367</FONT></TD><TD ALIGN="LEFT">cmp byte ptr [rax], 0</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x00636a</FONT></TD><TD ALIGN="LEFT">lea rdx, [rip + 0xf09]</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006371</FONT></TD><TD ALIGN="LEFT">cmove rax, rdx</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006375</FONT></TD><TD ALIGN="LEFT">add rsp, 8</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006379</FONT></TD><TD ALIGN="LEFT">ret</TD></TR></TABLE>>]
+	loc_6380 [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="4"><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006380</FONT></TD><TD ALIGN="LEFT">lea rax, [rip + 0xef3]</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x006387</FONT></TD><TD ALIGN="LEFT">add rsp, 8</TD></TR><TR><TD ALIGN="LEFT"><FONT COLOR="gray">0x00638b</FONT></TD><TD ALIGN="LEFT">ret</TD></TR></TABLE>>]
+	loc_6350 -> loc_6380 [color=green]
+	loc_6350 -> loc_6367 [color=red]
+}
