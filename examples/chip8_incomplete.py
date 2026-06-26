@@ -1,9 +1,14 @@
 from libcfg import *
 
-def disassembler(bin:bytes, addr:int):
+# uses padding to have consistent addresses
+bin = bytes(0x200) + open("main.bin", "rb").read()
+
+def disassembler(addr:int):
     """Minimal chip8 example. Only disassembles what's relevant for cfg generation.
     Any other instruction will be named "TEMP"
     """
+    global bin
+
     op = bin[addr:addr+2]
     opi = op[0]<<8 | op[1]
     
@@ -21,8 +26,7 @@ def disassembler(bin:bytes, addr:int):
         # additional casework to distinguish the condition+parameters of the skip is missing
         return CondJump(cond_true=addr+4, cond_false=addr+2) # condjump models skip instructions
     # other instructions which are not relevant to the CFG should be handled here 
-    return Instruction(addr+2, s="...") 
+    return Instruction(addr+2, s="...")
 
-
-# main.bin from THEM?!CTF 2026. bytes(0x200) is used to align the code to the entry point
-CFG(bytes(0x200) + open("main.bin", "rb").read(), disassembler, [0x200], directory="CFG-chip8")
+# main.bin from THEM?!CTF 2026
+CFG(disassembler, [0x200], directory="CFG-chip8")

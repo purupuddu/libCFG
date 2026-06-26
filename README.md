@@ -41,18 +41,26 @@ The instructions are of these kinds:
 - `Jump(target)`
 - `CondJump(cond_true, cond_false, "jXX loc_YYY")`
 
-The disassembler takes the whole binary file as bytes and an address and returns the instruction at that address.
+The disassembler takes an address and returns the instruction at that address.
 
 Calling 
 ```
-libcfg.CFG(binary:bytes, disassembler:Callable[[bytes, int], BaseInstruction], entry_points:List[int])
+libcfg.CFG(disassembler:Callable[[bytes, int], BaseInstruction], entry_points:List[int])
 ```
 generates a directory containing an html+svg for each function. 
 
 ## Example: Chip8 disassembler
 Here is a minimal, incomplete example of a chip8 disassembler
 ```python
-def disassembler(bin:bytes, addr:int):
+# uses padding to have consistent addresses
+bin = bytes(0x200) + open("main.bin", "rb").read()
+
+def disassembler(addr:int):
+    """Minimal chip8 example. Only disassembles what's relevant for cfg generation.
+    Any other instruction will be named "TEMP"
+    """
+    global bin
+
     op = bin[addr:addr+2]
     opi = op[0]<<8 | op[1]
     
@@ -70,10 +78,9 @@ def disassembler(bin:bytes, addr:int):
         # additional casework to distinguish the condition+parameters of the skip is missing
         return CondJump(cond_true=addr+4, cond_false=addr+2) # condjump models skip instructions
     # other instructions which are not relevant to the CFG should be handled here 
-    return Instruction(addr+2, s="...") 
+    return Instruction(addr+2, s="...")
 
-# uses padding to have consistent addresses
-CFG(bytes(0x200) + open("main.bin", "rb").read(), disassembler, [0x200])
+CFG(disassembler, [0x200])
 ```
 ### Example output
 ![Example image](examples/cfg_example.png)
