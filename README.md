@@ -19,15 +19,8 @@ brew install graphviz
 
 ## Installation
 
-
 ```bash
-python -m pip install git+https://github.com/purupuddu/libCFG.git
-```
-
-With `uv`:
-
-```bash
-uv add git+https://github.com/purupuddu/libCFG.git
+pip install git+https://github.com/purupuddu/libCFG.git
 ```
 
 ## Usage
