@@ -38,7 +38,7 @@ The disassembler takes an address and returns the instruction at that address.
 
 Calling 
 ```
-libcfg.CFG(disassembler:Callable[[bytes, int], BaseInstruction], entry_points:List[int])
+libcfg.CFG(disassembler:Callable[[int], BaseInstruction], entry_points:List[int])
 ```
 generates a directory containing an html+svg for each function. 
 
